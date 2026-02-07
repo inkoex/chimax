@@ -33,12 +33,16 @@ export function HeroSection() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                    <PrimaryButton className="w-full sm:w-auto px-10 h-16 text-lg">
-                        Get WhatsApp Access
-                    </PrimaryButton>
-                    <SecondaryButton className="w-full sm:w-auto px-10 h-16 text-lg">
-                        View Signature Menu
-                    </SecondaryButton>
+                    <a href="#rsvp" className="w-full sm:w-auto">
+                        <PrimaryButton className="w-full px-10 h-16 text-lg">
+                            Get WhatsApp Access
+                        </PrimaryButton>
+                    </a>
+                    <a href="#menu" className="w-full sm:w-auto">
+                        <SecondaryButton className="w-full px-10 h-16 text-lg">
+                            View Signature Menu
+                        </SecondaryButton>
+                    </a>
                 </div>
             </div>
         </section>

@@ -14,9 +14,11 @@ export function FinalCtaSection() {
                     <span className="text-primary italic">Crunch?</span>
                 </h2>
                 <div className="flex flex-col items-center gap-6">
-                    <PrimaryButton className="w-full sm:w-auto px-12 h-16 text-xl tracking-widest uppercase">
-                        Join the Launch List
-                    </PrimaryButton>
+                    <a href="#rsvp" className="w-full sm:w-auto">
+                        <PrimaryButton className="w-full sm:w-auto px-12 h-16 text-xl tracking-widest uppercase">
+                            Join the Launch List
+                        </PrimaryButton>
+                    </a>
                     <div className="flex items-center gap-2 text-neutral-600 font-bold text-xs uppercase tracking-widest">
                         <span className="size-2 rounded-full bg-green-500 animate-pulse" />
                         Active slots remaining for Bengaluru

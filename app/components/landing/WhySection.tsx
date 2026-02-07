@@ -1,5 +1,5 @@
 import React from "react";
-import { SectionContainer } from "../ui/Layout parts";
+import { SectionContainer } from "../ui/SectionLayout";
 
 export function WhySection() {
     return (

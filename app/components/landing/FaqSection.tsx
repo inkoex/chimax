@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SectionContainer } from "../ui/Layout parts";
+import { SectionContainer } from "../ui/SectionLayout";
 
 const FAQS = [
     {

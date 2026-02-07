@@ -1,6 +1,6 @@
 import React from "react";
 import { PROOF_POINTS } from "../../constants/landing";
-import { SectionContainer } from "../ui/Layout parts";
+import { SectionContainer } from "../ui/SectionLayout";
 
 export function ProofSection() {
     return (

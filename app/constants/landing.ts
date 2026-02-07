@@ -42,7 +42,7 @@ export const PROOF_POINTS = [
         description: "Engineered packaging with moisture-control vents."
     },
     {
-        icon: "shipped",
+        icon: "local_shipping",
         title: "Bengaluru Wide",
         description: "Fast delivery to all major city hubs."
     }

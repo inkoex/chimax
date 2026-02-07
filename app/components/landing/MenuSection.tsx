@@ -1,7 +1,6 @@
 import React from "react";
 import { MENU_ITEMS } from "../../constants/landing";
-import { Badge } from "../ui/Layout parts";
-import { SectionContainer } from "../ui/Layout parts";
+import { Badge, SectionContainer } from "../ui/SectionLayout";
 
 export function MenuSection() {
     return (

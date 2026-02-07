@@ -14,6 +14,44 @@ export function meta({ }: Route.MetaArgs) {
   ];
 }
 
+import { supabase } from "../lib/supabase";
+
+export async function action({ request }: Route.ActionArgs) {
+  const formData = await request.formData();
+  const name = formData.get("name") as string;
+  const phone = formData.get("phone") as string;
+  const consent = formData.get("consent") === "on";
+  const source = formData.get("source") as string;
+
+  // Basic validation for production readiness
+  if (!name || name.trim().length < 2) {
+    return { error: "Please enter your name." };
+  }
+
+  if (!phone || phone.length < 10) {
+    return { error: "Please enter a valid 10-digit phone number." };
+  }
+
+  if (!consent) {
+    return { error: "You must agree to receive updates via WhatsApp." };
+  }
+
+  // Save to Supabase
+  const { error } = await supabase.from("leads").insert([
+    { name, phone, source, consent }
+  ]);
+
+  if (error) {
+    console.error("Supabase Insert Error:", error);
+    return { error: "Failed to save your registration. Please try again." };
+  }
+
+  console.log("New Lead Saved to DB:", { name, phone, source, consent });
+
+  return { success: true };
+}
+
+
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-background-dark selection:bg-primary selection:text-background-dark">
