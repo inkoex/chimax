@@ -6,6 +6,7 @@ import { WhySection } from "../components/landing/WhySection";
 import { WhatsAppCaptureSection } from "../components/landing/WhatsAppCaptureSection";
 import { FaqSection } from "../components/landing/FaqSection";
 import { FinalCtaSection, Footer } from "../components/landing/FooterAndCta";
+import { getSupabaseClient } from "../lib/supabase";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -13,8 +14,6 @@ export function meta({ }: Route.MetaArgs) {
     { name: "description", content: "Experience Maximum Crunch and Seoul Spirit with Bengaluru's most authentic Korean Fried Chicken delivery." },
   ];
 }
-
-import { supabase } from "../lib/supabase";
 
 export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
@@ -37,6 +36,12 @@ export async function action({ request }: Route.ActionArgs) {
   }
 
   // Save to Supabase
+  const supabase = getSupabaseClient();
+
+  if (!supabase) {
+    return { error: "Signups are temporarily unavailable. Please try again shortly." };
+  }
+
   const { error } = await supabase.from("leads").insert([
     { name, phone, source, consent }
   ]);
